@@ -11,7 +11,7 @@ import i18n from '@/lib/i18n'
 export default function Login() {
   const router = useRouter()
   return (
-    <div className='w-full min-h-[calc(100vh_-_56px)] lg:grid lg:grid-cols-2'>
+    <div className='w-full min-[400px]:min-h-[calc(100vh_-_56px)] max-[400px]:min-h-[calc(100vh_-_84px)] lg:grid lg:grid-cols-2'>
       <div className='flex items-center justify-center py-12'>
         <div className='mx-auto grid w-[350px] gap-6'>
           <div className='grid gap-2'>
