@@ -5,13 +5,13 @@ import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import { ReactElement, useMemo } from 'react'
+import { ReactElement } from 'react'
 import i18n from '@/lib/i18n'
 
 export default function Login() {
   const router = useRouter()
   return (
-    <div className='w-full min-[400px]:min-h-[calc(100vh_-_56px)] max-[400px]:min-h-[calc(100vh_-_84px)] lg:grid lg:grid-cols-2'>
+    <div className='w-full min-[392px]:min-h-[calc(100vh_-_56px)] max-[392px]:min-h-[calc(100vh_-_84px)] lg:grid lg:grid-cols-2'>
       <div className='flex items-center justify-center py-12'>
         <div className='mx-auto grid w-[350px] gap-6'>
           <div className='grid gap-2'>
