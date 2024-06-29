@@ -1,22 +1,27 @@
-import Link from 'next/link'
-import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-import { ReactElement } from 'react'
 import DefaultLayout from '@/layouts/DefaultLayout'
 import { useRouter } from 'next/router'
+import Image from 'next/image'
+import Link from 'next/link'
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
+import { ReactElement, useMemo } from 'react'
+import i18n from '@/lib/i18n'
 
 export default function Login() {
   const router = useRouter()
   return (
-    <div className='flex items-center justify-center min-h-screen'>
-      <Card className='max-w-sm'>
-        <CardHeader>
-          <CardTitle className='text-2xl'>Login</CardTitle>
-          <CardDescription>Enter your email below to login to your account</CardDescription>
-        </CardHeader>
-        <CardContent>
+    <div className='w-full min-h-[calc(100vh_-_56px)] lg:grid lg:grid-cols-2'>
+      <div className='flex items-center justify-center py-12'>
+        <div className='mx-auto grid w-[350px] gap-6'>
+          <div className='grid gap-2'>
+            <h1 className='text-3xl font-bold' suppressHydrationWarning>
+              {i18n.t('login_title')}
+            </h1>
+            <p className='text-muted-foreground' suppressHydrationWarning>
+              {i18n.t('login_subtitle')}
+            </p>
+          </div>
           <div className='grid gap-4'>
             <div className='grid gap-2'>
               <Label htmlFor='email'>Email</Label>
@@ -25,7 +30,7 @@ export default function Login() {
             <div className='grid gap-2'>
               <div className='flex items-center'>
                 <Label htmlFor='password'>Password</Label>
-                <Link href='#' className='ml-auto inline-block text-sm underline'>
+                <Link href='/forgot-password' className='ml-auto inline-block text-sm underline'>
                   Forgot your password?
                 </Link>
               </div>
@@ -34,18 +39,24 @@ export default function Login() {
             <Button type='submit' className='w-full' onClick={() => router.push('/')}>
               Login
             </Button>
-            <Button variant='outline' className='w-full'>
-              Login with Google
-            </Button>
           </div>
-          <div className='mt-4 text-center text-sm'>
+          <div className='mt-1 text-sm'>
             Don&apos;t have an account?{' '}
             <Link href='#' className='underline'>
               Sign up
             </Link>
           </div>
-        </CardContent>
-      </Card>
+        </div>
+      </div>
+      <div className='hidden bg-muted lg:block'>
+        <Image
+          src='/assets/images/placeholder.svg'
+          alt='Image'
+          width='1920'
+          height='1080'
+          className='h-full w-full object-cover dark:brightness-[0.2] dark:grayscale'
+        />
+      </div>
     </div>
   )
 }
