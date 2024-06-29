@@ -25,7 +25,13 @@ const DefaultLayout = ({ children, title }: TProps) => {
         className={cn('min-h-screen bg-background font-sans antialiased', fontSans.variable)}
         suppressHydrationWarning
       >
-        <ThemeProvider attribute='class' defaultTheme='system' enableSystem disableTransitionOnChange>
+        <ThemeProvider
+          attribute='class'
+          defaultTheme='system'
+          storageKey='theme'
+          enableSystem
+          disableTransitionOnChange
+        >
           <Loading />
           {children}
           <Footer />
