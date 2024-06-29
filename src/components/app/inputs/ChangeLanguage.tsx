@@ -19,7 +19,7 @@ const ChangeLanguage = () => {
   }
   return (
     <Select value={value} onValueChange={(value: string) => handleChangeLang(value)}>
-      <SelectTrigger className='mx-1'>
+      <SelectTrigger className='w-[163px]'>
         <SelectValue placeholder={i18n.t('select_language')} />
       </SelectTrigger>
       <SelectContent>

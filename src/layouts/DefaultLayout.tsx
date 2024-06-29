@@ -5,6 +5,7 @@ import HeadApplication from '@/components/app/layouts/HeadApplication'
 import Footer from '@/components/app/layouts/Footer'
 import { Inter as FontSans } from 'next/font/google'
 import { cn } from '@/lib/utils'
+import { ThemeProvider } from '@/components/themeProvider'
 
 const fontSans = FontSans({
   subsets: ['latin'],
@@ -20,15 +21,23 @@ const DefaultLayout = ({ children, title }: TProps) => {
   return (
     <React.Fragment>
       <HeadApplication title={title} />
-      <Loading />
       <main
         className={cn('min-h-screen bg-background font-sans antialiased', fontSans.variable)}
         suppressHydrationWarning
       >
-        {children}
-        <Footer />
+        <ThemeProvider
+          attribute='class'
+          defaultTheme='system'
+          storageKey='theme'
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Loading />
+          {children}
+          <Footer />
+          <Toaster />
+        </ThemeProvider>
       </main>
-      <Toaster />
     </React.Fragment>
   )
 }
