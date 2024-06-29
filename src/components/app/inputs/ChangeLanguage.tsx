@@ -2,13 +2,24 @@ import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectVa
 import i18n from '@/lib/i18n'
 import { getCookie, setCookie } from 'cookies-next'
 import { useEffect, useState } from 'react'
-import selectorLang from '@/lib/constans/language'
+import selectorLang, { TSelectorLang } from '@/lib/constans/language'
 import { usePathname } from 'next/navigation'
 import { useRouter } from 'next/router'
+import useWindowSize from '@/lib/hooks/useWindowSize'
 
 const ChangeLanguage = () => {
   const pathname = usePathname()
   const router = useRouter()
+  const size = useWindowSize()
+
+  const [isTooSmall, setIsTooSmall] = useState(true)
+
+  useEffect(() => {
+    if (size?.width) {
+      setIsTooSmall(size.width < 392)
+    }
+  }, [size])
+
   const [value, setValue] = useState(getCookie('lang') ?? 'en')
 
   const handleChangeLang = (lang: string) => {
@@ -17,16 +28,17 @@ const ChangeLanguage = () => {
     i18n.changeLanguage(lang)
     router.push(pathname)
   }
+  163
   return (
     <Select value={value} onValueChange={(value: string) => handleChangeLang(value)}>
-      <SelectTrigger className='w-[163px]'>
+      <SelectTrigger className={`w-[${isTooSmall ? 60 : 163}px]`}>
         <SelectValue placeholder={i18n.t('select_language')} />
       </SelectTrigger>
       <SelectContent>
         <SelectGroup>
-          {selectorLang.map((obj: { label: string; value: string }, index: number) => (
+          {selectorLang.map((obj: TSelectorLang, index: number) => (
             <SelectItem key={index} value={obj.value}>
-              {obj.label}
+              {isTooSmall ? obj.short : obj.label}
             </SelectItem>
           ))}
         </SelectGroup>
