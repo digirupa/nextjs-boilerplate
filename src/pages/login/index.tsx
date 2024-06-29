@@ -62,5 +62,5 @@ export default function Login() {
 }
 
 Login.getLayout = function getLayout(page: ReactElement) {
-  return <DefaultLayout title={'Login'}>{page}</DefaultLayout>
+  return <DefaultLayout title={i18n.t('login_title')}>{page}</DefaultLayout>
 }
