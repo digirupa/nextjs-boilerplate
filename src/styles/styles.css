@@ -17,3 +17,12 @@
   }
 }
 /* END OF LOADING */
+
+/* START OF INPUT PASSWORD */
+.hide-password-toggle::-ms-reveal,
+.hide-password-toggle::-ms-clear {
+  visibility: hidden;
+  pointer-events: none;
+  display: none;
+}
+/* END OF INPUT PASSWORD */

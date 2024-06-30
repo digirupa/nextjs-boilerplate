@@ -5,6 +5,7 @@ import { ReactElement, ReactNode } from 'react'
 import { NextPage } from 'next'
 import { I18nextProvider } from 'react-i18next'
 import i18n from '@/lib/i18n'
+import ReactQueryProvider from '@/lib/ReactQueryProvider'
 
 export type TNextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode
@@ -17,7 +18,9 @@ const App = ({ Component, pageProps }: TAppPropsWithLayout) => {
   const getLayout = Component.getLayout ?? (page => page) // Use the layout defined at the page level, if available
   return getLayout(
     <I18nextProvider i18n={i18n} defaultNS={'translation'}>
-      <Component {...pageProps} />
+      <ReactQueryProvider>
+        <Component {...pageProps} />
+      </ReactQueryProvider>
     </I18nextProvider>
   )
 }
