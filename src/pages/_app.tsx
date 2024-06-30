@@ -5,7 +5,7 @@ import { ReactElement, ReactNode } from 'react'
 import { NextPage } from 'next'
 import { I18nextProvider } from 'react-i18next'
 import i18n from '@/lib/i18n'
-import ReactQueryProvider from '@/lib/ReactQueryProvider'
+import ReactQueryProvider from '@/lib/reactQueryProvider'
 
 export type TNextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode
