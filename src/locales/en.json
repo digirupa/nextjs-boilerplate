@@ -1,5 +1,23 @@
 {
   "login_title": "Login",
   "login_subtitle": "Enter your email and password below to login to your account",
-  "select_language": "Select Language"
+  "select_language": "Select Language",
+  "input_placeholder": "Enter your {{name}} here",
+  "email": "Email",
+  "password": "Password",
+  "forget_your_password": "Forget your password",
+  "login": "Login",
+  "dont_have_an_account": "Don't have an account",
+  "sign_up": "Sign Up",
+  "unexpected_error_title": "Sorry! Something went wrong.",
+  "unexpected_error_description": "There was a problem with your request, please try again later.",
+  "validation": {
+    "invalid_email": "Please enter a valid email",
+    "required_email": "Email cannot be empty",
+    "required_password": "Password cannot be empty",
+    "required_new_password": "New password cannot be empty",
+    "required_new_confirmation_password": "New password confirmation cannot be empty",
+    "same_as": "{{field}} does not match!",
+    "invalid": "Please enter a valid {{value}}"
+  }
 }
