@@ -31,7 +31,7 @@ const ChangeLanguage = () => {
   163
   return (
     <Select value={value} onValueChange={(value: string) => handleChangeLang(value)}>
-      <SelectTrigger className={`w-[${isTooSmall ? 60 : 163}px]`}>
+      <SelectTrigger className={isTooSmall ? 'w-[60px]' : 'w-[163px]'}>
         <SelectValue placeholder={i18n.t('select_language')} />
       </SelectTrigger>
       <SelectContent>
