@@ -14,8 +14,10 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { useLogin } from '@/queries/auth'
 import FormInput from '@/components/app/inputs/FormInput'
+import { useRouter } from 'next/router'
 
 export default function Login() {
+  const router = useRouter()
   //START OF FORM
   const UserSchema: ZodType<any> = generateValidationSchema(LoginForm)
   const defaultValues: TLoginForm = {
@@ -49,61 +51,48 @@ export default function Login() {
           <Form {...form}>
             <form className='grid gap-4' onSubmit={form.handleSubmit(onSubmit)}>
               {LoginForm.map((item: IDynamicForm, index: number) => {
-                return item.name === 'password' ? (
-                  <FormField
-                    key={index}
-                    className='grid gap-2'
-                    control={form.control}
-                    name={item.name}
-                    render={({ field }) => (
-                      <FormItem>
-                        <div className='flex items-center'>
-                          <Label htmlFor={item.name} suppressHydrationWarning>
-                            {item.label}
-                          </Label>
-                          <Link href='/forgot-password' className='ml-auto inline-block text-sm underline'>
-                            Forgot your password?
-                          </Link>
-                        </div>
-                        <FormControl>
-                          <FormInput
-                            id={item.name}
-                            type={item.type}
-                            placeholder={item.placeholder}
-                            required={item.validation?.required}
-                            control={form.control}
-                            {...field}
-                          />
-                        </FormControl>
-                        <FormMessage suppressHydrationWarning />
-                      </FormItem>
-                    )}
-                  />
-                ) : (
-                  <FormField
-                    key={index}
-                    className='grid gap-2'
-                    control={form.control}
-                    name={item.name}
-                    render={({ field }) => (
-                      <FormItem>
-                        <Label htmlFor={item.name} suppressHydrationWarning>
-                          {item.label}
-                        </Label>
-                        <FormControl>
-                          <FormInput
-                            id={item.name}
-                            type={item.type}
-                            placeholder={item.placeholder}
-                            required={item.validation?.required}
-                            control={form.control}
-                            {...field}
-                          />
-                        </FormControl>
-                        <FormMessage suppressHydrationWarning />
-                      </FormItem>
-                    )}
-                  />
+                return (
+                  <div className='grid gap-2' key={index}>
+                    <FormField
+                      control={form.control}
+                      name={item.name === 'password' ? (item.name as 'password') : (item.name as 'email')}
+                      render={({ field }) => (
+                        <FormItem>
+                          {item.name === 'password' ? (
+                            <div className='flex items-center'>
+                              <Label htmlFor={item.name} suppressHydrationWarning>
+                                {item.label}
+                              </Label>
+                              <Link
+                                href={'#'}
+                                onClick={() => router.push('/forget-password')}
+                                className='ml-auto inline-block text-sm underline'
+                                suppressHydrationWarning
+                              >
+                                {i18n.t('forget_your_password')}
+                              </Link>
+                            </div>
+                          ) : (
+                            <Label htmlFor={item.name} suppressHydrationWarning>
+                              {item.label}
+                            </Label>
+                          )}
+
+                          <FormControl>
+                            <FormInput
+                              id={item.name}
+                              type={item.type}
+                              placeholder={item.placeholder}
+                              required={item.validation?.required}
+                              control={form.control}
+                              {...field}
+                            />
+                          </FormControl>
+                          <FormMessage suppressHydrationWarning />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
                 )
               })}
 
@@ -112,10 +101,10 @@ export default function Login() {
               </Button>
             </form>
           </Form>
-          <div className='mt-1 text-sm'>
-            Don&apos;t have an account?{' '}
-            <Link href='#' className='underline'>
-              Sign up
+          <div className='mt-1 text-sm' suppressHydrationWarning>
+            {i18n.t('dont_have_an_account') + '? '}
+            <Link href='#' onClick={() => router.push('/register')} className='underline' suppressHydrationWarning>
+              {i18n.t('sign_up')}
             </Link>
           </div>
         </div>
