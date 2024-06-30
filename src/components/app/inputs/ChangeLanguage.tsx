@@ -16,7 +16,7 @@ const ChangeLanguage = () => {
 
   useEffect(() => {
     if (size?.width) {
-      setIsTooSmall(size.width < 392)
+      setIsTooSmall(size.width < 400)
     }
   }, [size])
 
