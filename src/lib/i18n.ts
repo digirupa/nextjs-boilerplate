@@ -33,6 +33,4 @@ i18n
     }
   })
 
-i18n.languages = ['en', 'id']
-
 export default i18n

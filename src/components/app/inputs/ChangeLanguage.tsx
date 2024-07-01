@@ -2,12 +2,10 @@ import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectVa
 import i18n from '@/lib/i18n'
 import { useEffect, useState } from 'react'
 import selectorLang, { TSelectorLang } from '@/lib/constans/language'
-import { usePathname } from 'next/navigation'
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/navigation'
 import useWindowSize from '@/lib/hooks/useWindowSize'
 
 const ChangeLanguage = () => {
-  const pathname = usePathname()
   const router = useRouter()
   const size = useWindowSize()
 
@@ -28,7 +26,7 @@ const ChangeLanguage = () => {
   const handleChangeLang = (lang: string) => {
     i18n.changeLanguage(lang)
     setValue(lang)
-    router.push(pathname)
+    router.refresh()
   }
   163
   return (

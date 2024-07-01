@@ -1,4 +1,3 @@
-'use client'
 import { useEffect } from 'react'
 import { apiAuth } from '@/lib/api'
 import useStore from '@/store/store'

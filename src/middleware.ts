@@ -21,7 +21,7 @@ export function middleware(request: NextRequest) {
     request.nextUrl.pathname.startsWith('/new-password')
   ) {
     /**
-     *  User not login but token and refresh token avaible
+     *  User not login but token and refresh token available
      */
     if (token && store) {
       return NextResponse.redirect(new URL('/', request.url))
