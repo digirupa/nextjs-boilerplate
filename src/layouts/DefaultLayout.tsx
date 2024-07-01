@@ -6,6 +6,8 @@ import Footer from '@/components/app/layouts/Footer'
 import { Inter as FontSans } from 'next/font/google'
 import { cn } from '@/lib/utils'
 import { ThemeProvider } from '@/components/themeProvider'
+import useStore from '@/store/store'
+import { useRouteLoading } from '@/lib/hooks/useRouteLoading'
 
 const fontSans = FontSans({
   subsets: ['latin'],
@@ -18,6 +20,8 @@ type TProps = {
 }
 
 const DefaultLayout = ({ children, title }: TProps) => {
+  const { loading } = useStore() //loading from store, ex: action
+  const routeLoading = useRouteLoading() // route loading
   return (
     <React.Fragment>
       <HeadApplication title={title} />
@@ -32,10 +36,12 @@ const DefaultLayout = ({ children, title }: TProps) => {
           enableSystem
           disableTransitionOnChange
         >
-          <Loading />
-          {children}
-          <Footer />
-          <Toaster />
+          <div className={loading || routeLoading ? 'pointer-events-none' : ''}>
+            <Loading />
+            {children}
+            <Footer />
+            <Toaster />
+          </div>
         </ThemeProvider>
       </main>
     </React.Fragment>

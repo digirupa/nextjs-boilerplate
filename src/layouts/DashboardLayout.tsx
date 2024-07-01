@@ -6,6 +6,10 @@ import Footer from '@/components/app/layouts/Footer'
 import { Inter as FontSans } from 'next/font/google'
 import { cn } from '@/lib/utils'
 import { ThemeProvider } from '@/components/themeProvider'
+import Header from '@/components/app/layouts/Header'
+import Sidebar from '@/components/app/layouts/sidebar'
+import useStore from '@/store/store'
+import { useRouteLoading } from '@/lib/hooks/useRouteLoading'
 
 const fontSans = FontSans({
   subsets: ['latin'],
@@ -18,6 +22,8 @@ type TProps = {
 }
 
 const DashboardLayout = ({ children, title }: TProps) => {
+  const { loading } = useStore() //loading from store, ex: action
+  const routeLoading = useRouteLoading() // route loading
   return (
     <React.Fragment>
       <HeadApplication title={title} />
@@ -32,10 +38,16 @@ const DashboardLayout = ({ children, title }: TProps) => {
           enableSystem
           disableTransitionOnChange
         >
-          <Loading />
-          {children}
-          <Footer />
-          <Toaster />
+          <div className={loading || routeLoading ? 'pointer-events-none' : ''}>
+            <Loading />
+            <Header />
+            <div className='flex h-screen overflow-hidden'>
+              <Sidebar />
+              <main className='flex-1 overflow-hidden pt-16'>{children}</main>
+            </div>
+            <Footer />
+            <Toaster />
+          </div>
         </ThemeProvider>
       </main>
     </React.Fragment>
