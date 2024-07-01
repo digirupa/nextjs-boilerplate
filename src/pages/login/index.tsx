@@ -13,7 +13,7 @@ import LoginForm from '@/form/login'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { useLogin } from '@/queries/auth'
-import FormInput from '@/components/app/inputs/FormInput'
+import { FormInput } from '@/components/app/inputs/FormInput'
 import { useRouter } from 'next/router'
 
 export default function Login() {
@@ -60,9 +60,7 @@ export default function Login() {
                         <FormItem>
                           {item.name === 'password' ? (
                             <div className='flex items-center'>
-                              <Label htmlFor={item.name} suppressHydrationWarning>
-                                {item.label}
-                              </Label>
+                              <Label suppressHydrationWarning>{item.label}</Label>
                               <Link
                                 href={'#'}
                                 onClick={() => router.push('/forget-password')}
@@ -73,9 +71,7 @@ export default function Login() {
                               </Link>
                             </div>
                           ) : (
-                            <Label htmlFor={item.name} suppressHydrationWarning>
-                              {item.label}
-                            </Label>
+                            <Label suppressHydrationWarning>{item.label}</Label>
                           )}
 
                           <FormControl>
@@ -116,6 +112,7 @@ export default function Login() {
           width='1920'
           height='1080'
           className='h-full w-full object-cover dark:brightness-[0.2] dark:grayscale'
+          priority
         />
       </div>
     </div>

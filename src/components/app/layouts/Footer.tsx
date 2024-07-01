@@ -10,7 +10,7 @@ const Footer = () => {
             <ChangeTheme />
             <ChangeLanguage />
           </div>
-          <p className='text-muted-foreground ml-auto' suppressHydrationWarning>
+          <p className='text-muted-foreground ml-auto mr-1' suppressHydrationWarning>
             Made in 🇮🇩 by <a href='https://github.com/digirupa'> Digirupa</a>
           </p>
         </div>

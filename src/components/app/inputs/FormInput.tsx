@@ -1,7 +1,7 @@
 import { useController, UseControllerProps } from 'react-hook-form'
 import { IOptions } from '@/types/form'
-import React from 'react'
-import { Input } from '@/components/ui/input'
+import React, { forwardRef, useEffect, useState } from 'react'
+import { Input, InputProps } from '@/components/ui/input'
 import { PasswordInput } from './PasswordInput'
 import { cn } from '@/lib/utils'
 
@@ -17,16 +17,37 @@ interface IProps extends UseControllerProps<any, string> {
   className?: string
 }
 
-const FormInput = ({ placeholder = '', required = false, id, type, className, ...props }: IProps) => {
-  const { field } = useController({ ...props })
-  return (
-    <React.Fragment>
-      {type === 'password' ? (
-        <PasswordInput className={className} id={id} placeholder={placeholder} required={required} {...field} />
-      ) : (
-        <Input className={cn(className)} id={id} type={type} placeholder={placeholder} required={required} {...field} />
-      )}
-    </React.Fragment>
-  )
-}
-export default FormInput
+const FormInput = forwardRef<HTMLInputElement | InputProps, IProps>(
+  ({ placeholder = '', required = false, id, type, className, ...props }, ref) => {
+    ref
+    const { field } = useController({ ...props })
+    const [isClient, setIsClient] = useState(false)
+
+    useEffect(() => {
+      setIsClient(true)
+    }, [])
+
+    return (
+      <React.Fragment>
+        {isClient && (
+          <React.Fragment>
+            {type === 'password' ? (
+              <PasswordInput className={className} id={id} placeholder={placeholder} required={required} {...field} />
+            ) : (
+              <Input
+                className={cn(className)}
+                id={id}
+                type={type}
+                placeholder={placeholder}
+                required={required}
+                {...field}
+              />
+            )}
+          </React.Fragment>
+        )}
+      </React.Fragment>
+    )
+  }
+)
+FormInput.displayName = 'FormInput'
+export { FormInput }
