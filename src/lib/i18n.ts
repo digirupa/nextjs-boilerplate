@@ -2,7 +2,6 @@ import i18n from 'i18next'
 import Backend from 'i18next-http-backend'
 import { initReactI18next } from 'react-i18next'
 import LanguageDetector from 'i18next-browser-languagedetector'
-import { getCookie } from 'cookies-next'
 import id from '@/locales/id.json'
 import en from '@/locales/en.json'
 
@@ -17,7 +16,9 @@ i18n
   // Enables the hook initialization module
   .use(initReactI18next)
   .init({
-    lng: getCookie('lang') ?? 'en',
+    supportedLngs: ['en', 'id'],
+    fallbackLng: 'en',
+    // lng: 'en',
     resources: {
       id: {
         translation: id
@@ -26,11 +27,12 @@ i18n
         translation: en
       }
     },
-    fallbackLng: 'en',
-    debug: false,
+    debug: process.env.NODE_ENV === 'development',
     interpolation: {
       escapeValue: false
     }
   })
+
+i18n.languages = ['en', 'id']
 
 export default i18n

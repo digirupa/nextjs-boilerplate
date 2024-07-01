@@ -1,6 +1,5 @@
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import i18n from '@/lib/i18n'
-import { getCookie, setCookie } from 'cookies-next'
 import { useEffect, useState } from 'react'
 import selectorLang, { TSelectorLang } from '@/lib/constans/language'
 import { usePathname } from 'next/navigation'
@@ -20,12 +19,15 @@ const ChangeLanguage = () => {
     }
   }, [size])
 
-  const [value, setValue] = useState(getCookie('lang') ?? 'en')
+  const [value, setValue] = useState('en')
+
+  useEffect(() => {
+    setValue(localStorage.getItem('i18nextLng') ?? 'en')
+  }, [])
 
   const handleChangeLang = (lang: string) => {
-    setCookie('lang', lang)
-    setValue(lang)
     i18n.changeLanguage(lang)
+    setValue(lang)
     router.push(pathname)
   }
   163

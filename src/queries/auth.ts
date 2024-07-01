@@ -1,18 +1,17 @@
 import useAxiosAuth from '@/lib/hooks/useAxiosAuth'
 import { AxiosError, AxiosResponse } from 'axios'
-import { IApi, IApiError, IAuth, TBodyLogin } from '@/types/api'
+import { IApi, IApiError, TAccount, TBodyLogin } from '@/types/api'
 import useStore from '@/store/store'
 import { setCookie } from 'cookies-next'
 import { useRouter } from 'next/router'
 import useRemoveUserData from '@/lib/hooks/useRemoveUserData'
 import { useToast } from '@/components/ui/use-toast'
 import i18n from '@/lib/i18n'
+import DummyPermissions from '@/dummy/permissions.json'
 
 const baseAPI = '/v1'
 
-/**
- *  Login
- */
+// START OF LOGIN
 export const useLogin = () => {
   const axiosAuth = useAxiosAuth()
   const { toast } = useToast()
@@ -21,14 +20,14 @@ export const useLogin = () => {
 
   const login = async (body: TBodyLogin) => {
     try {
-      const res: AxiosResponse<IApi<IAuth>> = await axiosAuth.post(`${baseAPI}/login`, {
+      const res: AxiosResponse<TAccount> = await axiosAuth.post(`${baseAPI}/login`, {
         ...body
       })
-      if (res && res?.data.status === 200 && res.data.data) {
-        setCookie('token', JSON.stringify(res.data.data?.token))
+      if (res?.status === 200 || res?.status === 201) {
+        setCookie('token', '907a8450031c96e5')
 
-        setPermissions(res.data.data?.permissions)
-        setAccount(res.data.data?.account)
+        setPermissions(DummyPermissions)
+        setAccount(res?.data)
 
         router.replace('/')
         return true
@@ -44,10 +43,9 @@ export const useLogin = () => {
   }
   return login
 }
+// END OF LOGIN
 
-/**
- *  Logout
- */
+// START OF LOGOUT
 export const useLogout = () => {
   const axiosAuth = useAxiosAuth()
   const { setPermissions } = useStore()
@@ -74,3 +72,4 @@ export const useLogout = () => {
 
   return { logout }
 }
+//END OF LOGOUT
