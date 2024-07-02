@@ -6,8 +6,7 @@ const useRemoveUserData = () => {
   const queryClient = useQueryClient()
   const router = useRouter()
   const removeUserData = () => {
-    deleteCookie('token')
-    deleteCookie('refreshToken')
+    deleteCookie('app-token')
     queryClient.resetQueries()
     router.replace('/login')
   }

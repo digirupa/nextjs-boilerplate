@@ -1,4 +1,4 @@
-import DefaultLayout from '@/layouts/DefaultLayout'
+import DefaultLayout from '@/layouts/default-layout'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
@@ -8,12 +8,12 @@ import { ReactElement } from 'react'
 import i18n from '@/lib/i18n'
 import { ZodType } from 'zod'
 import { IDynamicForm, TLoginForm } from '@/types/form'
-import { generateValidationSchema } from '@/lib/generateValidationSchema'
+import { generateValidationSchema } from '@/lib/generate-validation-schema'
 import LoginForm from '@/form/login'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { useLogin } from '@/queries/auth'
-import { FormInput } from '@/components/app/inputs/FormInput'
+import { FormInput } from '@/components/app/inputs/form-input'
 import { useRouter } from 'next/router'
 
 export default function Login() {
@@ -37,7 +37,7 @@ export default function Login() {
   //END OF FORM
 
   return (
-    <div className='w-full min-h-[calc(100vh_-_56px)] lg:grid lg:grid-cols-2'>
+    <div className='min-h-[calc(100vh_-_56px)] w-full lg:grid lg:grid-cols-2'>
       <div className='flex items-center justify-center py-12'>
         <div className='mx-auto grid w-[350px] gap-6'>
           <div className='grid gap-2'>

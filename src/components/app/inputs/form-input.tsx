@@ -2,7 +2,7 @@ import { useController, UseControllerProps } from 'react-hook-form'
 import { IOptions } from '@/types/form'
 import React, { forwardRef, useEffect, useState } from 'react'
 import { Input, InputProps } from '@/components/ui/input'
-import { PasswordInput } from './PasswordInput'
+import { PasswordInput } from './password-input'
 import { cn } from '@/lib/utils'
 
 interface IProps extends UseControllerProps<any, string> {

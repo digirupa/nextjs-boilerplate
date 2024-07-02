@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import queryClientOptions from '@/lib/constans/reactQueryOptions'
+import queryClientOptions from '@/constants/react-query-options'
 
 interface Props {
   children: ReactNode

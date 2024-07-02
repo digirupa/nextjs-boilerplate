@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { apiAuth } from '@/lib/api'
 import useStore from '@/store/store'
 import { getCookie } from 'cookies-next'
-import useRemoveUserData from '@/lib/hooks/useRemoveUserData'
+import useRemoveUserData from '@/lib/hooks/use-remove-user-data'
 import { useToast } from '@/components/ui/use-toast'
 import i18n from '@/lib/i18n'
 
@@ -12,7 +12,7 @@ const useAxiosAuth = () => {
   const removeUserData = useRemoveUserData()
 
   useEffect(() => {
-    const token = getCookie('token') ? JSON.parse(getCookie('token') as string) : ''
+    const token = getCookie('app-token') ? JSON.parse(getCookie('app-token') as string) : ''
 
     const requestIntercept = apiAuth.interceptors.request.use(
       config => {

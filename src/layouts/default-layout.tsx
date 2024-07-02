@@ -1,11 +1,13 @@
 import React, { ReactNode } from 'react'
 import { Toaster } from '@/components/ui/toaster'
-import Loading from '@/components/app/layouts/Loading'
-import HeadApplication from '@/components/app/layouts/HeadApplication'
-import Footer from '@/components/app/layouts/Footer'
+import TopLoading from '@/components/app/layouts/top-loading'
+import HeadApplication from '@/components/app/layouts/head-application'
+import Footer from '@/components/app/layouts/footer'
 import { Inter as FontSans } from 'next/font/google'
 import { cn } from '@/lib/utils'
 import { ThemeProvider } from '@/components/themeProvider'
+import useStore from '@/store/store'
+import { useRouteLoading } from '@/lib/hooks/use-route-loading'
 
 const fontSans = FontSans({
   subsets: ['latin'],
@@ -17,7 +19,9 @@ type TProps = {
   title?: string
 }
 
-const DashboardLayout = ({ children, title }: TProps) => {
+const DefaultLayout = ({ children, title }: TProps) => {
+  const { loading } = useStore() //loading from store, ex: action
+  const routeLoading = useRouteLoading() // route loading
   return (
     <React.Fragment>
       <HeadApplication title={title} />
@@ -32,14 +36,16 @@ const DashboardLayout = ({ children, title }: TProps) => {
           enableSystem
           disableTransitionOnChange
         >
-          <Loading />
-          {children}
-          <Footer />
-          <Toaster />
+          <div className={loading || routeLoading ? 'pointer-events-none' : ''}>
+            <TopLoading />
+            {children}
+            <Footer />
+            <Toaster />
+          </div>
         </ThemeProvider>
       </main>
     </React.Fragment>
   )
 }
 
-export default DashboardLayout
+export default DefaultLayout
