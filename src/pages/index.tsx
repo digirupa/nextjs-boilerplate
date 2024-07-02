@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <div className='m-4 flex-1 space-y-4'>
       <Tabs defaultValue='overview' className='space-y-4'>
-        <TabsList>
+        <TabsList className='border'>
           <TabsTrigger value='overview'>Overview</TabsTrigger>
           <TabsTrigger value='analytics' disabled>
             Analytics
