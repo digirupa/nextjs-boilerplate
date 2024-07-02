@@ -1,7 +1,7 @@
 import ChangeLanguage from '@/components/app/inputs/change-language'
 import ChangeTheme from '../inputs/change-theme'
 
-const Footer = () => {
+const AppFooter = () => {
   return (
     <footer className='border-t text-center'>
       <div className='p-2'>
@@ -19,4 +19,4 @@ const Footer = () => {
   )
 }
 
-export default Footer
+export default AppFooter

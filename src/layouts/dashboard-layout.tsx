@@ -2,11 +2,11 @@ import React, { ReactNode } from 'react'
 import { Toaster } from '@/components/ui/toaster'
 import TopLoading from '@/components/app/layouts/top-loading'
 import HeadApplication from '@/components/app/layouts/head-application'
-import Footer from '@/components/app/layouts/footer'
+import AppFooter from '@/components/app/layouts/app-footer'
 import { Inter as FontSans } from 'next/font/google'
 import { cn } from '@/lib/utils'
 import { ThemeProvider } from '@/components/themeProvider'
-import Header from '@/components/app/layouts/header'
+import AppHeader from '@/components/app/layouts/app-header'
 import Sidebar from '@/components/app/layouts/sidebar'
 import useStore from '@/store/store'
 import { useRouteLoading } from '@/lib/hooks/use-route-loading'
@@ -41,11 +41,11 @@ const DashboardLayout = ({ children, title }: TProps) => {
           <div className={loading || routeLoading ? 'pointer-events-none' : ''}>
             <TopLoading />
             <div className='flex h-screen'>
-              <Header />
+              <AppHeader />
               <Sidebar />
               <main className='flex-1 overflow-x-hidden overflow-y-scroll bg-secondary pt-16'>
                 {children}
-                <Footer />
+                <AppFooter />
               </main>
             </div>
             <Toaster />
