@@ -40,12 +40,14 @@ const DashboardLayout = ({ children, title }: TProps) => {
         >
           <div className={loading || routeLoading ? 'pointer-events-none' : ''}>
             <TopLoading />
-            <Header />
-            <div className='flex h-screen overflow-hidden'>
+            <div className='flex h-screen'>
+              <Header />
               <Sidebar />
-              <main className='flex-1 overflow-hidden pt-16'>{children}</main>
+              <main className='flex-1 overflow-x-hidden overflow-y-scroll bg-secondary pt-16'>
+                {children}
+                <Footer />
+              </main>
             </div>
-            <Footer />
             <Toaster />
           </div>
         </ThemeProvider>

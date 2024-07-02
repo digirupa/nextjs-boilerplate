@@ -22,9 +22,9 @@ export default function Sidebar({ className }: SidebarProps) {
   return (
     <nav
       className={cn(
-        `relative z-10 hidden h-screen flex-none border-r pt-20 md:block`,
+        `relative z-10 hidden h-screen flex-none border-r pt-0 md:block`,
         status && 'duration-500',
-        !isMinimized ? 'w-72' : 'w-[72px]',
+        !isMinimized ? 'w-[239px]' : 'w-[67px]',
         className
       )}
     >
@@ -35,8 +35,8 @@ export default function Sidebar({ className }: SidebarProps) {
         )}
         onClick={handleToggle}
       />
-      <div className='space-y-4 py-4'>
-        <div className='px-3 py-2'>
+      <div className='space-y-1 py-0'>
+        <div className='px-3 py-0'>
           <div className='mt-3 space-y-1'>
             <DashboardNav items={navItems} />
           </div>
