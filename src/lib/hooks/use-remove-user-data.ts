@@ -6,7 +6,7 @@ const useRemoveUserData = () => {
   const queryClient = useQueryClient()
   const router = useRouter()
   const removeUserData = () => {
-    deleteCookie('digirupa-token')
+    deleteCookie('app-token')
     queryClient.resetQueries()
     router.replace('/login')
   }
