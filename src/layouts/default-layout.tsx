@@ -39,7 +39,7 @@ const DefaultLayout = ({ children, title }: TProps) => {
           <div className={loading || routeLoading ? 'pointer-events-none' : ''}>
             <TopLoading />
             {children}
-            <AppFooter />
+            <AppFooter hiddenProjectName />
             <Toaster />
           </div>
         </ThemeProvider>

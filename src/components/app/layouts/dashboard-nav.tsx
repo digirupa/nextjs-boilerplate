@@ -23,8 +23,6 @@ export function DashboardNav({ items, setOpen, isMobileNav = false }: DashboardN
     return null
   }
 
-  console.log('isActive', isMobileNav, isMinimized)
-
   return (
     <nav className='grid items-start gap-2'>
       <TooltipProvider>
@@ -45,7 +43,7 @@ export function DashboardNav({ items, setOpen, isMobileNav = false }: DashboardN
                       if (setOpen) setOpen(false)
                     }}
                   >
-                    <Icon className={`ml-3 size-5`} />
+                    <Icon className={`ml-2.5 size-5`} />
 
                     {isMobileNav || (!isMinimized && !isMobileNav) ? (
                       <span className='mr-2 truncate'>{item.title}</span>

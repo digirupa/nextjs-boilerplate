@@ -43,9 +43,9 @@ const DashboardLayout = ({ children, title }: TProps) => {
             <div className='flex h-screen'>
               <AppHeader />
               <Sidebar />
-              <main className='flex-1 overflow-x-hidden overflow-y-scroll bg-secondary pt-16'>
+              <main className='mt-[56px] flex-1 overflow-x-hidden overflow-y-scroll bg-secondary'>
                 {children}
-                <AppFooter />
+                <AppFooter hiddenThemeChange hiddenLanguageChange />
               </main>
             </div>
             <Toaster />
