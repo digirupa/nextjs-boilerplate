@@ -5,7 +5,7 @@ import { MobileSidebar } from './mobile-sidebar'
 import { UserNav } from './user-nav'
 import { useSidebar } from '@/lib/hooks/use-sidebar'
 
-export default function Header() {
+export default function AppHeader() {
   const { isMinimized } = useSidebar()
   return (
     <div

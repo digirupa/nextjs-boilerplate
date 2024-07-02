@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react'
 import { Toaster } from '@/components/ui/toaster'
 import TopLoading from '@/components/app/layouts/top-loading'
 import HeadApplication from '@/components/app/layouts/head-application'
-import Footer from '@/components/app/layouts/footer'
+import AppFooter from '@/components/app/layouts/app-footer'
 import { Inter as FontSans } from 'next/font/google'
 import { cn } from '@/lib/utils'
 import { ThemeProvider } from '@/components/themeProvider'
@@ -39,7 +39,7 @@ const DefaultLayout = ({ children, title }: TProps) => {
           <div className={loading || routeLoading ? 'pointer-events-none' : ''}>
             <TopLoading />
             {children}
-            <Footer />
+            <AppFooter />
             <Toaster />
           </div>
         </ThemeProvider>
