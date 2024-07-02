@@ -1,9 +1,9 @@
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import i18n from '@/lib/i18n'
 import { useEffect, useState } from 'react'
-import selectorLang, { TSelectorLang } from '@/lib/constans/language'
+import selectorLang, { TSelectorLang } from '@/constants/language'
 import { useRouter } from 'next/navigation'
-import useWindowSize from '@/lib/hooks/useWindowSize'
+import useWindowSize from '@/lib/hooks/use-window-size'
 
 const ChangeLanguage = () => {
   const router = useRouter()

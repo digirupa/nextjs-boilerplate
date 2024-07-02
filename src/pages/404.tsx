@@ -1,7 +1,7 @@
 import { useRouter } from 'next/navigation'
 import { Button } from '@/components/ui/button'
 import { ReactElement } from 'react'
-import DefaultLayout from '@/layouts/DefaultLayout'
+import DefaultLayout from '@/layouts/default-layout'
 
 export default function NotFound() {
   const router = useRouter()

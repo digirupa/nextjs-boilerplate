@@ -1,15 +1,15 @@
 import React, { ReactNode } from 'react'
 import { Toaster } from '@/components/ui/toaster'
-import Loading from '@/components/app/layouts/Loading'
-import HeadApplication from '@/components/app/layouts/HeadApplication'
-import Footer from '@/components/app/layouts/Footer'
+import TopLoading from '@/components/app/layouts/top-loading'
+import HeadApplication from '@/components/app/layouts/head-application'
+import Footer from '@/components/app/layouts/footer'
 import { Inter as FontSans } from 'next/font/google'
 import { cn } from '@/lib/utils'
 import { ThemeProvider } from '@/components/themeProvider'
-import Header from '@/components/app/layouts/Header'
+import Header from '@/components/app/layouts/header'
 import Sidebar from '@/components/app/layouts/sidebar'
 import useStore from '@/store/store'
-import { useRouteLoading } from '@/lib/hooks/useRouteLoading'
+import { useRouteLoading } from '@/lib/hooks/use-route-loading'
 
 const fontSans = FontSans({
   subsets: ['latin'],
@@ -39,7 +39,7 @@ const DashboardLayout = ({ children, title }: TProps) => {
           disableTransitionOnChange
         >
           <div className={loading || routeLoading ? 'pointer-events-none' : ''}>
-            <Loading />
+            <TopLoading />
             <Header />
             <div className='flex h-screen overflow-hidden'>
               <Sidebar />

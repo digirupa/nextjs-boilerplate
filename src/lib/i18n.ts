@@ -27,7 +27,7 @@ i18n
         translation: en
       }
     },
-    debug: process.env.NODE_ENV === 'development',
+    debug: false,
     interpolation: {
       escapeValue: false
     }
