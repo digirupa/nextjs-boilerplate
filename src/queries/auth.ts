@@ -24,7 +24,7 @@ export const useLogin = () => {
         ...body
       })
       if (res?.status === 200 || res?.status === 201) {
-        setCookie('token', '907a8450031c96e5')
+        setCookie('digirupa-token', '907a8450031c96e5')
 
         setPermissions(DummyPermissions)
         setAccount(res?.data)

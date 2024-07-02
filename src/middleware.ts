@@ -6,7 +6,7 @@ import { TStore } from './types/store'
 
 export function middleware(request: NextRequest) {
   const cookieStore = cookies()
-  const token = cookieStore.get('token')
+  const token = cookieStore.get('digirupa-token')
   const store: StorageValue<Pick<TStore, 'permissions' | 'account'>> = cookieStore.get('store')
     ? JSON.parse(String(cookieStore.get('store')?.value))
     : null

@@ -12,7 +12,7 @@ const useAxiosAuth = () => {
   const removeUserData = useRemoveUserData()
 
   useEffect(() => {
-    const token = getCookie('token') ? JSON.parse(getCookie('token') as string) : ''
+    const token = getCookie('digirupa-token') ? JSON.parse(getCookie('digirupa-token') as string) : ''
 
     const requestIntercept = apiAuth.interceptors.request.use(
       config => {
