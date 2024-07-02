@@ -3,7 +3,7 @@ import ChangeTheme from '../inputs/change-theme'
 
 const Footer = () => {
   return (
-    <footer className='border-t bg-background text-center'>
+    <footer className='border-t text-center'>
       <div className='p-2'>
         <div className='flex flex-wrap items-center gap-1'>
           <div className='flex gap-1'>
