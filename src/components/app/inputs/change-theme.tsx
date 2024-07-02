@@ -18,7 +18,7 @@ export default function ChangeTheme() {
           <Button variant='outline' size='icon'>
             {resolvedTheme === 'light' ? (
               <Sun className='mx-auto h-[1.2rem] w-[1.2rem] transition-all' />
-            ) : resolvedTheme === 'light' ? (
+            ) : resolvedTheme === 'dark' ? (
               <Moon className='mx-auto h-[1.2rem] w-[1.2rem] transition-all' />
             ) : (
               <></>
