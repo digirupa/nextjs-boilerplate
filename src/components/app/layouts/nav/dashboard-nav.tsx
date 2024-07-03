@@ -6,7 +6,7 @@ import { cn } from '@/lib/utils'
 import { NavItem } from '@/types'
 import { Dispatch, SetStateAction } from 'react'
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
-import { Icons } from '../icons'
+import { Icons } from '../../icons'
 import { useSidebar } from '@/lib/hooks/use-sidebar'
 
 interface DashboardNavProps {

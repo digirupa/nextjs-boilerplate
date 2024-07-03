@@ -11,15 +11,23 @@ import {
   DropdownMenuShortcut,
   DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu'
+import { getInitials } from '@/lib/utils'
+import useStore from '@/store/store'
 export function UserNav() {
+  const { account } = useStore()
+  console.log('account: ', account)
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant='ghost' className='relative h-8 w-8 rounded-full'>
+        <Button variant='outline' className='h-11 gap-2 rounded-sm border p-1.5'>
           <Avatar className='h-8 w-8'>
-            <AvatarImage src={'session.user?.image' ?? ''} alt={'session.user?.name' ?? ''} />
-            <AvatarFallback>{'session.user?.name?.[0]'}</AvatarFallback>
+            <AvatarImage src={account?.avatar} alt={'avatar'} />
+            <AvatarFallback>{getInitials(account.full_name)}</AvatarFallback>
           </Avatar>
+          <div className='text-left'>
+            <p className='font-bold max-md:hidden'>{account?.full_name}</p>
+            <p className='text-xs text-muted-foreground'>{account.email}</p>
+          </div>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className='w-56' align='end' forceMount>

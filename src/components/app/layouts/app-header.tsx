@@ -1,6 +1,6 @@
 import { cn } from '@/lib/utils'
-import { MobileSidebar } from './mobile-sidebar'
-import { UserNav } from './user-nav'
+import { MobileSidebar } from './sidebar/mobile-sidebar'
+import { UserNav } from './nav/user-nav'
 import { useSidebar } from '@/lib/hooks/use-sidebar'
 
 export default function AppHeader() {

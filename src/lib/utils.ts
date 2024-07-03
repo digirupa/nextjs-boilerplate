@@ -43,3 +43,18 @@ export function shortenNumber(num: number): string {
   ).toString()
   return result
 }
+
+export const getInitials = (value: string): string => {
+  if (value) {
+    return value
+      .split(' ')
+      .map(name => name[0])
+      .join('')
+  } else {
+    return ''
+  }
+}
+
+export const regexCase = new RegExp(/^(?=.*?[A-Z])(?=.*?[a-z]).{0,}$/)
+export const regexNumber = new RegExp(/^(?=.*?[0-9]).{0,}$/)
+export const regexSpecialChar = new RegExp('(?=.*[!@?#$%^&*-+=_])')
