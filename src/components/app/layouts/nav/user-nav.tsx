@@ -17,8 +17,6 @@ import useStore from '@/store/store'
 export function UserNav() {
   const { account } = useStore()
   const { logout } = useLogout()
-
-  console.log('account: ', account)
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
