@@ -3,6 +3,7 @@ import { RecentSales } from '@/components/app/recent-sales'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import DashboardLayout from '@/layouts/dashboard-layout'
+import i18n from '@/lib/i18n'
 import { ReactElement } from 'react'
 
 export default function Home() {
@@ -169,5 +170,5 @@ export default function Home() {
 }
 
 Home.getLayout = function getLayout(page: ReactElement) {
-  return <DashboardLayout title={'Home'}>{page}</DashboardLayout>
+  return <DashboardLayout title={i18n.t('home_title')}>{page}</DashboardLayout>
 }

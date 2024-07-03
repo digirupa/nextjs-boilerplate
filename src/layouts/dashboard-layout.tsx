@@ -41,7 +41,7 @@ const DashboardLayout = ({ children, title }: TProps) => {
           <div className={loading || routeLoading ? 'pointer-events-none' : ''}>
             <TopLoading />
             <div className='flex h-screen'>
-              <AppHeader />
+              <AppHeader title={title ?? ''} />
               <Sidebar />
               <main className='mt-[56px] flex-1 overflow-x-hidden overflow-y-scroll bg-secondary'>
                 {children}

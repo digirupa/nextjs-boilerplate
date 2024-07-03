@@ -4,7 +4,10 @@ import { UserNav } from './nav/user-nav'
 import { useSidebar } from '@/lib/hooks/use-sidebar'
 import NotificationNav from '@/components/app/layouts/nav/notification-nav'
 
-export default function AppHeader() {
+type TProps = {
+  title: string
+}
+export default function AppHeader({ title }: TProps) {
   const { isMinimized } = useSidebar()
   return (
     <div
@@ -16,10 +19,12 @@ export default function AppHeader() {
       <nav className='flex h-14 items-center justify-between px-4'>
         <div className='flex items-center gap-2 md:ml-1'>
           <MobileSidebar />
-          <p className='text-xl font-bold md:text-2xl '>Judul Halaman</p>
+          <p className='text-xl font-bold md:text-2xl ' suppressHydrationWarning>
+            {title}
+          </p>
         </div>
         <div className='flex items-center gap-2'>
-          <NotificationNav/>
+          <NotificationNav />
           <UserNav />
         </div>
       </nav>
