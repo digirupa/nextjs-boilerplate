@@ -24,8 +24,8 @@ export function UserNav() {
             <AvatarImage src={account?.avatar} alt={'avatar'} />
             <AvatarFallback>{getInitials(account.full_name)}</AvatarFallback>
           </Avatar>
-          <div className='text-left'>
-            <p className='font-bold max-md:hidden'>{account?.full_name}</p>
+          <div className='text-left max-md:hidden'>
+            <p className='font-bold'>{account?.full_name}</p>
             <p className='text-xs text-muted-foreground'>{account.email}</p>
           </div>
         </Button>
