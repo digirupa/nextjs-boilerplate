@@ -52,11 +52,11 @@ export const useLogout = () => {
   const { toast } = useToast()
   const removeUserData = useRemoveUserData()
 
-  const logout = async () => {
+  const logout = async (id: string) => {
     try {
-      const res: AxiosResponse<IApi> = await axiosAuth.post(`${baseAPI}/logout`)
+      const res: AxiosResponse<IApi> = await axiosAuth.delete(`${baseAPI}/login/${id}`)
 
-      if (res && res.data.status == 200) {
+      if (res && res.status == 200) {
         removeUserData()
         setPermissions([])
       }

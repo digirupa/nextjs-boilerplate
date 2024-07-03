@@ -12,6 +12,9 @@
   "unexpected_error_title": "Sorry! Something went wrong.",
   "unexpected_error_description": "There was a problem with your request, please try again later.",
   "notification": "Notification",
+  "profile": "Profile",
+  "settings": "Settings",
+  "log_out": "Log out",
   "validation": {
     "invalid_email": "Please enter a valid email",
     "required_email": "Email cannot be empty",
