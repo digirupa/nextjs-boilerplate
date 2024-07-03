@@ -12,6 +12,9 @@
   "unexpected_error_title": "Maaf! Terjadi kesalahan",
   "unexpected_error_description": "Ada yang salah pada permintaanmu, Mohon coba beberapa saat lagi.",
   "notification": "Pemberitahuan",
+  "profile": "Profil",
+  "settings": "Pengaturan",
+  "log_out": "Keluar",
   "validation": {
     "invalid_email": "Silahkan masukkan email Kamu yang valid",
     "required_email": "Email tidak boleh kosong",

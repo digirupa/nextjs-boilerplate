@@ -8,13 +8,16 @@ import {
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
-  DropdownMenuShortcut,
   DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu'
+import i18n from '@/lib/i18n'
 import { getInitials } from '@/lib/utils'
+import { useLogout } from '@/queries/auth'
 import useStore from '@/store/store'
 export function UserNav() {
   const { account } = useStore()
+  const { logout } = useLogout()
+
   console.log('account: ', account)
   return (
     <DropdownMenu>
@@ -39,25 +42,11 @@ export function UserNav() {
         </DropdownMenuLabel>
         <DropdownMenuSeparator className='md:hidden' />
         <DropdownMenuGroup>
-          <DropdownMenuItem>
-            Profile
-            <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
-          </DropdownMenuItem>
-          <DropdownMenuItem>
-            Billing
-            <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
-          </DropdownMenuItem>
-          <DropdownMenuItem>
-            Settings
-            <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
-          </DropdownMenuItem>
-          <DropdownMenuItem>New Team</DropdownMenuItem>
+          <DropdownMenuItem>{i18n.t('profile')}</DropdownMenuItem>
+          <DropdownMenuItem>{i18n.t('settings')}</DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
-        <DropdownMenuItem onClick={() => {}}>
-          Log out
-          <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
-        </DropdownMenuItem>
+        <DropdownMenuItem onClick={() => logout(account.id)}>{i18n.t('log_out')}</DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   )

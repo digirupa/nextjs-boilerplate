@@ -1,13 +1,10 @@
 import { deleteCookie } from 'cookies-next'
-import { useQueryClient } from '@tanstack/react-query'
 import { useRouter } from 'next/router'
 
 const useRemoveUserData = () => {
-  const queryClient = useQueryClient()
   const router = useRouter()
   const removeUserData = () => {
     deleteCookie('app-token')
-    queryClient.resetQueries()
     router.replace('/login')
   }
   return removeUserData
