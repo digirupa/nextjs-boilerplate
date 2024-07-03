@@ -4,7 +4,7 @@ import { navItems } from '@/constants/menus'
 import { cn } from '@/lib/utils'
 import { ChevronLeft, Link } from 'lucide-react'
 import { useSidebar } from '@/lib/hooks/use-sidebar'
-import { DashboardNav } from './dashboard-nav'
+import { DashboardNav } from '../nav/dashboard-nav'
 
 type SidebarProps = {
   className?: string

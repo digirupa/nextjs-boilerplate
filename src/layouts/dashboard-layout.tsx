@@ -7,7 +7,7 @@ import { Inter as FontSans } from 'next/font/google'
 import { cn } from '@/lib/utils'
 import { ThemeProvider } from '@/components/themeProvider'
 import AppHeader from '@/components/app/layouts/app-header'
-import Sidebar from '@/components/app/layouts/sidebar'
+import Sidebar from '@/components/app/layouts/sidebar/sidebar'
 import useStore from '@/store/store'
 import { useRouteLoading } from '@/lib/hooks/use-route-loading'
 

@@ -1,7 +1,9 @@
 import { cn } from '@/lib/utils'
-import { MobileSidebar } from './mobile-sidebar'
-import { UserNav } from './user-nav'
+import { MobileSidebar } from './sidebar/mobile-sidebar'
+import { UserNav } from './nav/user-nav'
 import { useSidebar } from '@/lib/hooks/use-sidebar'
+import { Button } from '@/components/ui/button'
+import { Bell } from 'lucide-react'
 
 export default function AppHeader() {
   const { isMinimized } = useSidebar()
@@ -18,6 +20,9 @@ export default function AppHeader() {
           <p className='text-xl font-bold md:text-2xl '>Judul Halaman</p>
         </div>
         <div className='flex items-center gap-2'>
+          <Button variant='ghost'>
+            <Bell />
+          </Button>
           <UserNav />
         </div>
       </nav>
