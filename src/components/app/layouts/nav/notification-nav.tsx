@@ -18,7 +18,7 @@ export default function NotificationNav() {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant='outline' className='h-11 w-11 rounded-sm border p-1.5'>
-          <Bell />
+          <Bell size={20} />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className='w-96' align='end' forceMount>
