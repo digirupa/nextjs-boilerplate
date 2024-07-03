@@ -15,6 +15,7 @@
   "profile": "Profile",
   "settings": "Settings",
   "log_out": "Log out",
+  "home_title": "Home",
   "validation": {
     "invalid_email": "Please enter a valid email",
     "required_email": "Email cannot be empty",
