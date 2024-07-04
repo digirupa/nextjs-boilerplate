@@ -13,6 +13,7 @@ import i18n from '@/lib/i18n'
 import { Bell } from 'lucide-react'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Separator } from '@/components/ui/separator'
+import { ScrollAreaViewport } from '@radix-ui/react-scroll-area'
 
 export default function NotificationNav() {
   const notif = Array.from({ length: 100 }).map((_, i, a) => `Content All ${a.length - i}`)
@@ -39,27 +40,31 @@ export default function NotificationNav() {
               <TabsTrigger value='all'>{i18n.t('all')}</TabsTrigger>
             </TabsList>
             <TabsContent value='unread'>
-              <ScrollArea className='mx-3 my-4 h-72 w-full'>
-                {notifUnread.map(obj => (
-                  <>
-                    <div key={obj} className='text-sm'>
-                      {obj}
-                    </div>
-                    <Separator className='my-2' />
-                  </>
-                ))}
+              <ScrollArea className='mx-3 my-4 w-full'>
+                <ScrollAreaViewport className='max-h-72'>
+                  {notifUnread.map(obj => (
+                    <>
+                      <div key={obj} className='text-sm'>
+                        {obj}
+                      </div>
+                      <Separator className='my-2' />
+                    </>
+                  ))}
+                </ScrollAreaViewport>
               </ScrollArea>
             </TabsContent>
             <TabsContent value='all'>
-              <ScrollArea className='mx-3 my-4 h-72 w-full'>
-                {notif.map(obj => (
-                  <>
-                    <div key={obj} className='text-sm'>
-                      {obj}
-                    </div>
-                    <Separator className='my-2' />
-                  </>
-                ))}
+              <ScrollArea className='mx-3 my-4 w-full'>
+                <ScrollAreaViewport className='max-h-72'>
+                  {notif.map(obj => (
+                    <>
+                      <div key={obj} className='text-sm'>
+                        {obj}
+                      </div>
+                      <Separator className='my-2' />
+                    </>
+                  ))}
+                </ScrollAreaViewport>
               </ScrollArea>
             </TabsContent>
           </Tabs>
