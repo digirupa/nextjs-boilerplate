@@ -16,6 +16,9 @@
   "settings": "Settings",
   "log_out": "Log out",
   "home_title": "Home",
+  "read_all": "Read All",
+  "all": "All",
+  "unread": "Unread",
   "validation": {
     "invalid_email": "Please enter a valid email",
     "required_email": "Email cannot be empty",

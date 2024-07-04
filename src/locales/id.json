@@ -16,6 +16,9 @@
   "settings": "Pengaturan",
   "log_out": "Keluar",
   "home_title": "Beranda",
+  "read_all": "Baca Semua",
+  "all": "Semua",
+  "unread": "Belum Dibaca",
   "validation": {
     "invalid_email": "Silahkan masukkan email Kamu yang valid",
     "required_email": "Email tidak boleh kosong",
