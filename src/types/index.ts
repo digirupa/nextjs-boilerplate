@@ -30,3 +30,11 @@ export interface FooterItem {
 export type MainNavItem = NavItemWithOptionalChildren
 
 export type SidebarNavItem = NavItemWithChildren
+
+export type TNotification = {
+  createdAt: Date
+  title: string
+  content: string
+  isRead: boolean
+  id: string
+}
