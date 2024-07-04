@@ -44,7 +44,9 @@ export function UserNav() {
           <DropdownMenuItem>{i18n.t('settings')}</DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
-        <DropdownMenuItem onClick={() => logout(account.id)}>{i18n.t('log_out')}</DropdownMenuItem>
+        <DropdownMenuItem className='cursor-pointer' onClick={() => logout(account.id)}>
+          {i18n.t('log_out')}
+        </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   )
