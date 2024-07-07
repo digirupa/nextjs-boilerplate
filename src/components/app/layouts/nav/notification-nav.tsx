@@ -77,8 +77,7 @@ export default function NotificationNav() {
                       className={cn(
                         'mr-4 flex cursor-pointer flex-row justify-between overflow-x-visible py-2 hover:bg-secondary',
                         index + 1 !== NotifUnread.length && 'border-b',
-                        obj.isRead === false &&
-                          'bg-green-50 hover:bg-green-100 dark:bg-green-950 dark:hover:bg-green-900'
+                        obj.isRead === false && 'bg-gray-200 hover:bg-gray-300 dark:bg-gray-900 dark:hover:bg-gray-800'
                       )}
                     >
                       <div className='flex grow flex-col gap-1'>
