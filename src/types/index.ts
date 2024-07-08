@@ -1,13 +1,13 @@
 import { Icons } from '@/components/app/icons'
 
 export interface NavItem {
-  title: string
-  href?: string
-  disabled?: boolean
-  external?: boolean
+  id: string
+  label: string
+  type: 'category' | 'page' | 'group'
+  link: string
   icon?: keyof typeof Icons
-  label?: string
-  description?: string
+  children?: NavItem[]
+  disabled?: boolean
 }
 
 export interface NavItemWithChildren extends NavItem {

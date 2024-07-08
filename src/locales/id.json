@@ -27,5 +27,22 @@
     "required_new_confirmation_password": "Konfirmasi kata sandi baru tidak boleh kosong",
     "same_as": "{{field}} tidak sama!",
     "invalid": "Silahkan masukkan {{value}} yang valid"
+  },
+  "menu": {
+    "dashboard": "Dashboard",
+    "user_management": "Manajemen Pengguna",
+    "role_permissions": "Peran & Izin",
+    "master_data": "Master Data",
+    "product": "Produk",
+    "product_category": "Kategori Produk",
+    "transactions": "Transaksi",
+    "goods_request": "Permintaan Barang",
+    "purchase_order": "Permintaan Pembelian",
+    "sales_order": "Permintaan Penjualan",
+    "reports": "Laporan",
+    "warehouse": "Gudang",
+    "procurement": "Pembelian",
+    "sales": "Penjualan",
+    "finance_accounting": "Keuangan & Akuntansi"
   }
 }
