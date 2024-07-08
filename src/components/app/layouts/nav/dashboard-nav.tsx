@@ -8,6 +8,7 @@ import { Dispatch, SetStateAction } from 'react'
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
 import { Icons } from '../../icons'
 import { useSidebar } from '@/lib/hooks/use-sidebar'
+import { Separator } from '@/components/ui/separator'
 
 interface DashboardNavProps {
   items: NavItem[]
@@ -25,18 +26,18 @@ export function DashboardNav({ items, setOpen, isMobileNav = false }: DashboardN
 
   return (
     <nav className='grid items-start gap-2'>
-      <TooltipProvider>
+      <TooltipProvider delayDuration={100}>
         {items.map((item, index) => {
           const Icon = Icons[item.icon || 'arrowRight']
           return (
-            item.href && (
-              <Tooltip key={index}>
-                <TooltipTrigger asChild>
+            <Tooltip key={index}>
+              <TooltipTrigger asChild>
+                {item.type === 'page' ? (
                   <Link
-                    href={item.disabled ? '/' : item.href}
+                    href={item.disabled ? '#' : item.link}
                     className={cn(
                       'flex items-center gap-2 overflow-hidden rounded-md py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground',
-                      path === item.href ? 'bg-accent' : 'transparent',
+                      path === item.link ? 'border-2 bg-accent' : 'transparent',
                       item.disabled && 'cursor-not-allowed opacity-80'
                     )}
                     onClick={() => {
@@ -45,23 +46,28 @@ export function DashboardNav({ items, setOpen, isMobileNav = false }: DashboardN
                   >
                     <Icon className={`ml-2.5 size-5`} />
 
-                    {isMobileNav || (!isMinimized && !isMobileNav) ? (
-                      <span className='mr-2 truncate'>{item.title}</span>
-                    ) : (
-                      ''
-                    )}
+                    {isMobileNav ||
+                      (!isMinimized && !isMobileNav && <span className='mr-2 truncate'>{item.label}</span>)}
                   </Link>
-                </TooltipTrigger>
-                <TooltipContent
-                  align='center'
-                  side='right'
-                  sideOffset={8}
-                  className={!isMinimized ? 'hidden' : 'inline-block'}
-                >
-                  {item.title}
-                </TooltipContent>
-              </Tooltip>
-            )
+                ) : (
+                  <div className={isMobileNav || (!isMinimized && !isMobileNav) ? '' : 'cursor-pointer'}>
+                    {isMobileNav || (!isMinimized && !isMobileNav) ? (
+                      <p className='pb-0 pt-2 font-bold'>{item.label}</p>
+                    ) : (
+                      <Separator className='mb-0 mt-2 hover:rounded-full hover:border-t-4' />
+                    )}
+                  </div>
+                )}
+              </TooltipTrigger>
+              <TooltipContent
+                align='center'
+                side='right'
+                sideOffset={8}
+                className={!isMinimized ? 'hidden' : 'inline-block'}
+              >
+                {item.label}
+              </TooltipContent>
+            </Tooltip>
           )
         })}
       </TooltipProvider>

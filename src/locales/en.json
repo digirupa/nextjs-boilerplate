@@ -27,5 +27,22 @@
     "required_new_confirmation_password": "New password confirmation cannot be empty",
     "same_as": "{{field}} does not match!",
     "invalid": "Please enter a valid {{value}}"
+  },
+  "menu": {
+    "dashboard": "Dashboard",
+    "role_permissions": "Role & Permissions",
+    "user_management": "User Management",
+    "master_data": "Master Data",
+    "product": "Product",
+    "product_category": "Product Category",
+    "transactions": "Transactions",
+    "goods_request": "Goods Request",
+    "purchase_order": "Purchase Order",
+    "sales_order": "Sales Order",
+    "reports": "Reports",
+    "warehouse": "Warehouse",
+    "procurement": "Procurement",
+    "sales": "Sales",
+    "finance_accounting": "Finance & Accounting"
   }
 }

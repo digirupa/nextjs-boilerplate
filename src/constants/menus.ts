@@ -1,202 +1,175 @@
+import i18n from '@/lib/i18n'
 import { NavItem } from '@/types'
 
 export const navItems: NavItem[] = [
   {
-    title: 'Home',
-    href: '/',
-    icon: 'dashboard',
-    label: 'home'
+    id: 'dashboard',
+    label: i18n.t('menu.dashboard'),
+    type: 'page',
+    link: '/',
+    icon: 'dashboard'
   },
   {
-    title: 'User',
-    href: '/dashboard/user',
-    icon: 'user',
-    label: 'user'
+    id: 'role_permissions',
+    label: i18n.t('menu.role_permissions'),
+    type: 'page',
+    link: '/role-permissions',
+    icon: 'folderKey'
   },
   {
-    title: 'Employee',
-    href: '/dashboard/employee',
-    icon: 'employee',
-    label: 'employee'
+    id: 'user_management',
+    label: i18n.t('menu.user_management'),
+    type: 'page',
+    link: '/user-management',
+    icon: 'userRound'
   },
   {
-    title: 'Profile',
-    href: '/dashboard/profile',
-    icon: 'profile',
-    label: 'profile'
+    id: 'master_data',
+    label: i18n.t('menu.master_data'),
+    type: 'category',
+    link: '#'
   },
   {
-    title: 'Kanban',
-    href: '/dashboard/kanban',
-    icon: 'kanban',
-    label: 'kanban'
+    id: 'product',
+    label: i18n.t('menu.product'),
+    type: 'page',
+    link: '/master-data/product',
+    icon: 'packageOpen'
   },
   {
-    title: 'User',
-    href: '/dashboard/user',
-    icon: 'user',
-    label: 'user'
+    id: 'product_category',
+    label: i18n.t('menu.product_category'),
+    type: 'page',
+    link: '/master-data/product-category',
+    icon: 'archive'
   },
   {
-    title: 'Employee',
-    href: '/dashboard/employee',
-    icon: 'employee',
-    label: 'employee'
+    id: 'transactions',
+    label: i18n.t('menu.transactions'),
+    type: 'category',
+    link: '#'
   },
   {
-    title: 'Profile',
-    href: '/dashboard/profile',
-    icon: 'profile',
-    label: 'profile'
+    id: 'goods_request',
+    label: i18n.t('menu.goods_request'),
+    type: 'page',
+    link: '/transaction/goods-request',
+    icon: 'baggageClaim'
   },
   {
-    title: 'Kanban',
-    href: '/dashboard/kanban',
-    icon: 'kanban',
-    label: 'kanban'
+    id: 'purchase_order',
+    label: i18n.t('menu.purchase_order'),
+    type: 'page',
+    link: '/transaction/purchase-order',
+    icon: 'shoppingBasket'
   },
   {
-    title: 'User',
-    href: '/dashboard/user',
-    icon: 'user',
-    label: 'user'
+    id: 'sales_order',
+    label: i18n.t('menu.sales_order'),
+    type: 'page',
+    link: '/transaction/sales-order',
+    icon: 'shoppingCart'
   },
   {
-    title: 'Employee',
-    href: '/dashboard/employee',
-    icon: 'employee',
-    label: 'employee'
+    id: 'reports',
+    label: i18n.t('menu.reports'),
+    type: 'category',
+    link: '#'
   },
   {
-    title: 'Profile',
-    href: '/dashboard/profile',
-    icon: 'profile',
-    label: 'profile'
+    id: 'warehouse',
+    label: i18n.t('menu.warehouse'),
+    type: 'page',
+    link: '#',
+    icon: 'warehouse',
+    children: [
+      {
+        id: 'warehouse_report_1',
+        label: 'Report #1',
+        type: 'page',
+        link: '#'
+      }
+    ]
   },
   {
-    title: 'Kanban',
-    href: '/dashboard/kanban',
-    icon: 'kanban',
-    label: 'kanban'
+    id: 'procurement',
+    label: i18n.t('menu.procurement'),
+    type: 'page',
+    link: '#',
+    icon: 'ticketPlus',
+    children: [
+      {
+        id: 'procurement_report_1',
+        label: 'Report #1',
+        type: 'page',
+        link: '#'
+      },
+      {
+        id: 'procurement_report_2',
+        label: 'Report #2',
+        type: 'page',
+        link: '#'
+      }
+    ]
   },
   {
-    title: 'User',
-    href: '/dashboard/user',
-    icon: 'user',
-    label: 'user'
+    id: 'sales',
+    label: i18n.t('menu.sales'),
+    type: 'page',
+    link: '#',
+    icon: 'ticketCheck',
+    children: [
+      {
+        id: 'sales_report_1',
+        label: 'Report #1',
+        type: 'page',
+        link: '#'
+      },
+      {
+        id: 'sales_report_2',
+        label: 'Report #2',
+        type: 'page',
+        link: '#'
+      },
+      {
+        id: 'sales_report_3',
+        label: 'Report #3',
+        type: 'page',
+        link: '#'
+      }
+    ]
   },
   {
-    title: 'Employee',
-    href: '/dashboard/employee',
-    icon: 'employee',
-    label: 'employee'
-  },
-  {
-    title: 'Profile',
-    href: '/dashboard/profile',
-    icon: 'profile',
-    label: 'profile'
-  },
-  {
-    title: 'Kanban',
-    href: '/dashboard/kanban',
-    icon: 'kanban',
-    label: 'kanban'
-  },
-  {
-    title: 'User',
-    href: '/dashboard/user',
-    icon: 'user',
-    label: 'user'
-  },
-  {
-    title: 'Employee',
-    href: '/dashboard/employee',
-    icon: 'employee',
-    label: 'employee'
-  },
-  {
-    title: 'Profile',
-    href: '/dashboard/profile',
-    icon: 'profile',
-    label: 'profile'
-  },
-  {
-    title: 'Kanban',
-    href: '/dashboard/kanban',
-    icon: 'kanban',
-    label: 'kanban'
-  },
-  {
-    title: 'User',
-    href: '/dashboard/user',
-    icon: 'user',
-    label: 'user'
-  },
-  {
-    title: 'Employee',
-    href: '/dashboard/employee',
-    icon: 'employee',
-    label: 'employee'
-  },
-  {
-    title: 'Profile',
-    href: '/dashboard/profile',
-    icon: 'profile',
-    label: 'profile'
-  },
-  {
-    title: 'Kanban',
-    href: '/dashboard/kanban',
-    icon: 'kanban',
-    label: 'kanban'
-  },
-  {
-    title: 'User',
-    href: '/dashboard/user',
-    icon: 'user',
-    label: 'user'
-  },
-  {
-    title: 'Employee',
-    href: '/dashboard/employee',
-    icon: 'employee',
-    label: 'employee'
-  },
-  {
-    title: 'Profile',
-    href: '/dashboard/profile',
-    icon: 'profile',
-    label: 'profile'
-  },
-  {
-    title: 'Kanban',
-    href: '/dashboard/kanban',
-    icon: 'kanban',
-    label: 'kanban'
-  },
-  {
-    title: 'User',
-    href: '/dashboard/user',
-    icon: 'user',
-    label: 'user'
-  },
-  {
-    title: 'Employee',
-    href: '/dashboard/employee',
-    icon: 'employee',
-    label: 'employee'
-  },
-  {
-    title: 'Profile',
-    href: '/dashboard/profile',
-    icon: 'profile',
-    label: 'profile'
-  },
-  {
-    title: 'Kanban',
-    href: '/dashboard/kanban',
-    icon: 'kanban',
-    label: 'kanban'
+    id: 'finance_accounting',
+    label: i18n.t('menu.finance_accounting'),
+    type: 'page',
+    link: '#',
+    icon: 'wallet',
+    children: [
+      {
+        id: 'finance_accounting_report_1',
+        label: 'Report #1',
+        type: 'page',
+        link: '#'
+      },
+      {
+        id: 'finance_accounting_report_2',
+        label: 'Report #2',
+        type: 'page',
+        link: '#'
+      },
+      {
+        id: 'finance_accounting_report_3',
+        label: 'Report #3',
+        type: 'page',
+        link: '#'
+      },
+      {
+        id: 'finance_accounting_report_4',
+        label: 'Report #4',
+        type: 'page',
+        link: '#'
+      }
+    ]
   }
 ]
