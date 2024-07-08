@@ -37,7 +37,7 @@ export function DashboardNav({ items, setOpen, isMobileNav = false }: DashboardN
                     href={item.disabled ? '#' : item.link}
                     className={cn(
                       'flex items-center gap-2 overflow-hidden rounded-md py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground',
-                      path === item.link ? 'border-2 bg-accent' : 'transparent',
+                      path === item.link ? 'border bg-accent' : 'transparent',
                       item.disabled && 'cursor-not-allowed opacity-80'
                     )}
                     onClick={() => {
@@ -54,7 +54,7 @@ export function DashboardNav({ items, setOpen, isMobileNav = false }: DashboardN
                     {isMobileNav || (!isMinimized && !isMobileNav) ? (
                       <p className='pb-0 pt-2 font-bold'>{item.label}</p>
                     ) : (
-                      <Separator className='mb-0 mt-2 hover:rounded-full hover:border-t-4' />
+                      <Separator className='mb-0 mt-2 hover:rounded-full hover:border-t-2' />
                     )}
                   </div>
                 )}
